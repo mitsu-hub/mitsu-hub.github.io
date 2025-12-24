@@ -75,5 +75,31 @@ mitsu-hub.github.io/
 
 ---
 
+## Design Decisions
+
+### Why a Static Site (GitHub Pages)
+I chose a static site approach using GitHub Pages to minimize complexity,
+reduce security risks, and focus on clean structure and content clarity.
+This approach eliminates the need for server-side management while providing
+reliable and fast public access.
+
+### Why a Multi-Page Structure
+Instead of placing all content on a single page, the site is structured into
+separate pages to improve readability and support future expansion.
+This design allows new sections (e.g., additional projects or labs) to be added
+without disrupting the existing layout.
+
+### Centralized Styling
+A single shared CSS file was used across all pages to ensure consistent visual
+design and simplify maintenance. Global styles reduce duplication and make
+future updates more efficient.
+
+### Git-Based Workflow
+All changes are managed through Git, allowing version control, rollback, and
+incremental improvements. This workflow reflects real-world development
+practices and supports ongoing iteration.
+
+---
+
 ## Author
 Mitsu
