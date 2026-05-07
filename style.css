@@ -1,50 +1,203 @@
-body {
-  font-family: Arial, Helvetica, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background-color: #f9f9f9;
-  color: #333;
-  line-height: 1.6;
 }
+
+:root {
+  --navy:    #03080F;
+  --navy-2:  #070F1A;
+  --navy-3:  #0C1724;
+  --blue:    #1A6FD4;
+  --blue-2:  #2483F5;
+  --blue-glow: rgba(26, 111, 212, 0.25);
+  --cyan:    #00C7FF;
+  --text:    #E8EDF4;
+  --text-2:  #8B9CB5;
+  --text-3:  #4A5A70;
+  --border:  rgba(255,255,255,0.07);
+  --border-2:rgba(255,255,255,0.12);
+  --font-mono: 'Space Mono', monospace;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--navy);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Grid overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(26,111,212,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26,111,212,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ──────────────── HEADER ──────────────── */
 
 header {
-  background-color: #0a3d62;
-  color: white;
-  padding: 2rem 1rem;
-  text-align: center;
+  position: relative;
+  z-index: 1;
+  padding: 2rem 2.5rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+  background: rgba(3,8,15,0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
 }
+
+.header-logo {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--blue-2);
+  letter-spacing: 0.05em;
+}
+
+.header-logo span {
+  color: var(--text-2);
+}
+
+nav {
+  display: flex;
+  gap: 0.25rem;
+}
+
+nav a {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-2);
+  text-decoration: none;
+  padding: 0.45rem 1rem;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  letter-spacing: 0.06em;
+  transition: all 0.2s;
+}
+
+nav a:hover {
+  color: var(--text);
+  border-color: var(--border-2);
+  background: rgba(255,255,255,0.04);
+}
+
+nav a.active {
+  color: var(--blue-2);
+  border-color: rgba(36,131,245,0.3);
+  background: rgba(36,131,245,0.08);
+}
+
+/* ──────────────── MAIN ──────────────── */
 
 main {
-  max-width: 900px;
-  margin: auto;
-  padding: 2rem 1rem;
-  background-color: white;
+  position: relative;
+  z-index: 1;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 4rem 2rem 6rem;
+}
+
+/* ──────────────── SECTION HEADERS ──────────────── */
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.section-header h2 {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: var(--blue-2);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.section-header::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--border-2), transparent);
+}
+
+/* ──────────────── CARDS ──────────────── */
+
+.card {
+  background: var(--navy-2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.75rem;
+  transition: border-color 0.25s, background 0.25s;
+}
+
+.card:hover {
+  border-color: var(--border-2);
+  background: var(--navy-3);
+}
+
+/* ──────────────── TAGS / BADGES ──────────────── */
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
   margin-top: 1rem;
-  border-radius: 6px;
 }
 
-h1, h2 {
-  margin-top: 0;
+.tag {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.06em;
+  padding: 0.25rem 0.7rem;
+  border-radius: 3px;
+  background: rgba(26,111,212,0.1);
+  border: 1px solid rgba(26,111,212,0.2);
+  color: #6AACEE;
 }
 
-h2 {
-  border-bottom: 2px solid #0a3d62;
-  padding-bottom: 0.3rem;
-}
+/* ──────────────── LINKS ──────────────── */
 
 a {
-  color: #0a3d62;
-  font-weight: bold;
+  color: var(--blue-2);
   text-decoration: none;
+  transition: color 0.2s;
 }
 
 a:hover {
-  text-decoration: underline;
+  color: var(--cyan);
 }
 
+/* ──────────────── FOOTER ──────────────── */
+
 footer {
+  position: relative;
+  z-index: 1;
   text-align: center;
-  padding: 1.5rem;
-  color: #666;
-  font-size: 0.9rem;
+  padding: 2rem;
+  border-top: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-3);
+  letter-spacing: 0.08em;
 }
