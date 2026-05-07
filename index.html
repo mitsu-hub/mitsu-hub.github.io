@@ -3,39 +3,160 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projects | Mitsutaka Uehara</title>
+  <title>Mitsutaka Uehara | IT & Cybersecurity</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    .page-header {
-      padding: 4rem 0 3rem;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 4rem;
+    .hero {
+      padding: 6rem 0 5rem;
     }
-    .page-header-eyebrow {
+    .hero-eyebrow {
       font-family: var(--font-mono);
-      font-size: 0.7rem;
-      color: var(--text-3);
-      letter-spacing: 0.15em;
+      font-size: 0.72rem;
+      color: var(--blue);
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
       display: flex;
       align-items: center;
       gap: 0.75rem;
     }
-    .page-header-eyebrow a { color: var(--text-3); text-decoration: none; transition: color 0.2s; }
-    .page-header-eyebrow a:hover { color: var(--blue); }
-    .page-header h1 {
-      font-family: var(--font-mono);
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      font-weight: 700;
-      color: var(--text);
-      letter-spacing: -0.02em;
-      margin-bottom: 1rem;
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 28px;
+      height: 1px;
+      background: var(--blue);
     }
-    .page-header p { font-size: 0.95rem; color: var(--text-2); font-weight: 300; max-width: 480px; }
+    .hero h1 {
+      font-family: var(--font-mono);
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+      color: var(--text);
+    }
+    .hero h1 .accent { color: var(--blue); }
+    .hero-desc {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: var(--text-2);
+      max-width: 520px;
+      line-height: 1.75;
+      margin-bottom: 2.5rem;
+    }
+    .hero-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1.5rem;
+      border-radius: 5px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--blue);
+      color: #fff;
+      border: 1px solid var(--blue);
+    }
+    .btn-primary:hover {
+      background: var(--blue-2);
+      border-color: var(--blue-2);
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(26,111,212,0.25);
+    }
+    .btn-outline {
+      background: var(--white);
+      color: var(--text-2);
+      border: 1px solid var(--border-2);
+    }
+    .btn-outline:hover {
+      color: var(--text);
+      border-color: rgba(0,0,0,0.25);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
 
-    .decisions-section { margin-bottom: 5rem; }
-    .decisions-list {
+    /* ABOUT */
+    .about-section { margin-bottom: 5rem; }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .about-block { background: var(--white); padding: 2rem; }
+    .about-block-label {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--text-3);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+    .about-block p {
+      font-size: 0.95rem;
+      color: var(--text-2);
+      line-height: 1.7;
+      font-weight: 300;
+    }
+    .about-block p strong { color: var(--text); font-weight: 500; }
+
+    /* PROJECTS */
+    .projects-section { margin-bottom: 5rem; }
+    .proj-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .proj-item {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: start;
+      gap: 1.5rem;
+      background: var(--white);
+      padding: 1.5rem 2rem;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .proj-item:hover { background: var(--bg); }
+    .proj-num {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--text-3);
+      padding-top: 3px;
+      min-width: 20px;
+    }
+    .proj-name {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.35rem;
+    }
+    .proj-sub { font-size: 0.82rem; color: var(--text-2); font-weight: 300; }
+    .proj-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.6rem; }
+    .proj-arrow {
+      color: var(--text-3);
+      font-size: 1rem;
+      padding-top: 2px;
+      transition: color 0.2s, transform 0.2s;
+    }
+    .proj-item:hover .proj-arrow { color: var(--blue); transform: translateX(3px); }
+
+    /* SKILLS */
+    .skills-section { margin-bottom: 5rem; }
+    .skills-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 1px;
@@ -44,120 +165,64 @@
       border-radius: 8px;
       overflow: hidden;
     }
-    .decision-item {
-      background: var(--white);
-      padding: 1.25rem 1.5rem 1.25rem 2.25rem;
+    .skill-block { background: var(--white); padding: 1.5rem; }
+    .skill-block-title {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--blue);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.85rem;
+    }
+    .skill-list { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+    .skill-list li {
       font-size: 0.85rem;
       color: var(--text-2);
       font-weight: 300;
-      line-height: 1.6;
-      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
-    .decision-item::before {
+    .skill-list li::before {
       content: '';
-      position: absolute;
-      left: 1.25rem; top: 1.55rem;
       width: 4px; height: 4px;
       border-radius: 50%;
-      background: var(--blue);
+      background: var(--text-3);
+      flex-shrink: 0;
     }
 
-    .project-entry { margin-bottom: 4rem; scroll-margin-top: 80px; }
-    .proj-entry-header {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: start;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-    }
-    .proj-entry-title {
-      font-family: var(--font-mono);
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 0.35rem;
-      letter-spacing: -0.01em;
-    }
-    .proj-entry-meta { font-size: 0.8rem; color: var(--text-3); font-weight: 300; font-style: italic; }
-    .proj-entry-num {
-      font-family: var(--font-mono);
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--bg-2);
-      line-height: 1;
-      user-select: none;
-    }
-    .proj-entry-body {
+    /* CONTACT */
+    .contact-section { margin-bottom: 3rem; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .contact-card {
       background: var(--white);
       border: 1px solid var(--border);
       border-radius: 8px;
-      overflow: hidden;
-    }
-    .proj-entry-intro {
-      padding: 1.75rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .proj-entry-intro p { font-size: 0.9rem; color: var(--text-2); font-weight: 300; line-height: 1.75; }
-    .proj-highlights {
-      padding: 1.5rem 1.75rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .proj-highlights-label {
-      font-family: var(--font-mono);
-      font-size: 0.62rem;
-      color: var(--text-3);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 1rem;
-    }
-    .highlights-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
-    .highlights-list li {
-      font-size: 0.87rem;
-      color: var(--text-2);
-      font-weight: 300;
-      line-height: 1.6;
-      padding-left: 1.25rem;
-      position: relative;
-    }
-    .highlights-list li::before {
-      content: '—';
-      position: absolute;
-      left: 0;
-      color: var(--text-3);
-      font-family: var(--font-mono);
-    }
-    .proj-footer {
-      padding: 1.25rem 1.75rem;
+      padding: 1.5rem;
+      text-decoration: none;
       display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 0.75rem;
+      flex-direction: column;
+      gap: 0.35rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
     }
-    .proj-footer-label {
+    .contact-card:hover {
+      border-color: rgba(26,111,212,0.3);
+      box-shadow: 0 2px 12px rgba(26,111,212,0.08);
+    }
+    .contact-card-label {
       font-family: var(--font-mono);
-      font-size: 0.62rem;
+      font-size: 0.65rem;
       color: var(--text-3);
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      margin-right: 0.25rem;
     }
-    .proj-footer-tech { display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center; }
-    .divider { border: none; border-top: 1px solid var(--border); margin: 3.5rem 0; }
-    .back-link {
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      color: var(--text-3);
-      text-decoration: none;
-      letter-spacing: 0.08em;
-      transition: color 0.2s;
-    }
-    .back-link:hover { color: var(--blue); }
+    .contact-card-value { font-size: 0.9rem; color: var(--text); font-weight: 300; }
 
     @media (max-width: 640px) {
       header { padding: 1.25rem; }
       main { padding: 3rem 1.25rem 5rem; }
-      .proj-entry-header { grid-template-columns: 1fr; }
-      .proj-entry-num { display: none; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 2rem; }
     }
   </style>
 </head>
@@ -166,208 +231,156 @@
 <header>
   <div class="header-logo">Mitsutaka Uehara</div>
   <nav>
-    <a href="/">home</a>
-    <a href="/portfolio/" class="active">projects</a>
+    <a href="/" class="active">home</a>
+    <a href="/portfolio/">projects</a>
     <a href="Mitsutaka_Uehara_resume.pdf" target="_blank">resume</a>
   </nav>
 </header>
 
 <main>
 
-  <div class="page-header">
-    <div class="page-header-eyebrow">
-      <a href="/">← home</a>
-      <span>/</span>
-      <span>projects</span>
-    </div>
-    <h1>Projects</h1>
-    <p>Academic research, student-led deployments, and hands-on security training.</p>
-  </div>
-
-  <section class="decisions-section">
-    <div class="section-header"><h2>Design Decisions</h2></div>
-    <div class="decisions-list">
-      <div class="decision-item">Static site architecture via GitHub Pages for simplicity, security, and reliability</div>
-      <div class="decision-item">Multi-page structure to separate overview and detailed project content</div>
-      <div class="decision-item">Centralized styling for consistency and reduced maintenance overhead</div>
-      <div class="decision-item">Git-based workflow for versioned, reviewable updates</div>
+  <section class="hero">
+    <div class="hero-eyebrow">IT &amp; Cybersecurity Student</div>
+    <h1>Mitsutaka<br><span class="accent">Uehara</span></h1>
+    <p class="hero-desc">
+      Building toward a career in security operations. Hands-on experience
+      in networking, machine learning–based IDPS research, and web systems.
+      Currently at <strong>Edmonds College</strong>.
+    </p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="/portfolio/">View Projects</a>
+      <a class="btn btn-outline" href="Mitsutaka_Uehara_resume.pdf" target="_blank">Download Resume</a>
+      <a class="btn btn-outline" href="https://www.linkedin.com/in/mitsutaka-uehara" target="_blank">LinkedIn</a>
     </div>
   </section>
 
-  <article class="project-entry" id="idps">
-    <div class="proj-entry-header">
-      <div>
-        <div class="proj-entry-title">ML-Based Intrusion Detection & Prevention Evaluation</div>
-        <div class="proj-entry-meta">Kanto Gakuin University &nbsp;·&nbsp; Sep 2022 – Mar 2024</div>
+  <section class="about-section">
+    <div class="section-header"><h2>About</h2></div>
+    <div class="about-grid">
+      <div class="about-block">
+        <div class="about-block-label">Background</div>
+        <p>Cybersecurity student with experience across <strong>networking</strong>, systems administration, and applied security research. Conducted two years of ML-based intrusion detection research at Kanto Gakuin University before continuing studies in the US.</p>
       </div>
-      <div class="proj-entry-num">01</div>
+      <div class="about-block">
+        <div class="about-block-label">Goal</div>
+        <p>Aspiring <strong>SOC analyst</strong> — drawn to the intersection of accurate detection, real-world threat analysis, and informed incident response. Fluent in <strong>English and Japanese</strong>.</p>
+      </div>
     </div>
-    <div class="proj-entry-body">
-      <div class="proj-entry-intro">
-        <p>A two-year research effort that fundamentally shaped my approach to cybersecurity. Driven by a strong interest in IDPS, I implemented and evaluated multiple machine learning algorithms against the CICIDS2017 dataset to understand how ML can address real-world network security challenges — and where it falls short.</p>
-      </div>
-      <div class="proj-highlights">
-        <div class="proj-highlights-label">Key Contributions</div>
-        <ul class="highlights-list">
-          <li>Implemented four ML algorithms: SVM, Naive Bayes, Decision Tree, and k-Nearest Neighbors</li>
-          <li>Conducted binary classification experiments using precision and recall as primary metrics</li>
-          <li>Developed ~10 Python source files, each exceeding 1,000 lines of code</li>
-          <li>Identified gaps between theoretical performance and real-world false positive rates on normal traffic</li>
-          <li>Iteratively refined experiments through continuous trial and error over two academic years</li>
-          <li>Gained a realistic perspective on operational IDPS deployment challenges</li>
+  </section>
+
+  <section class="projects-section">
+    <div class="section-header"><h2>Projects</h2></div>
+    <div class="proj-grid">
+      <a class="proj-item" href="/portfolio/#idps">
+        <span class="proj-num">01</span>
+        <div class="proj-content">
+          <div class="proj-name">ML-Based Intrusion Detection Evaluation</div>
+          <div class="proj-sub">Kanto Gakuin University · 2022–2024</div>
+          <div class="proj-tags">
+            <span class="tag">Python</span>
+            <span class="tag">Machine Learning</span>
+            <span class="tag">Network Security</span>
+          </div>
+        </div>
+        <span class="proj-arrow">→</span>
+      </a>
+      <a class="proj-item" href="/portfolio/#jsa">
+        <span class="proj-num">02</span>
+        <div class="proj-content">
+          <div class="proj-name">JSA Official Website</div>
+          <div class="proj-sub">Edmonds College · 2025–Present</div>
+          <div class="proj-tags">
+            <span class="tag">HTML/CSS</span>
+            <span class="tag">Google Sheets API</span>
+            <span class="tag">GitHub Pages</span>
+          </div>
+        </div>
+        <span class="proj-arrow">→</span>
+      </a>
+      <a class="proj-item" href="/portfolio/#malware">
+        <span class="proj-num">03</span>
+        <div class="proj-content">
+          <div class="proj-name">Cybersecurity Mini Camp – Malware Analysis</div>
+          <div class="proj-sub">Kanto Gakuin University · May 2023</div>
+          <div class="proj-tags">
+            <span class="tag">Malware Analysis</span>
+            <span class="tag">Sandbox</span>
+          </div>
+        </div>
+        <span class="proj-arrow">→</span>
+      </a>
+      <a class="proj-item" href="/portfolio/#ccna">
+        <span class="proj-num">04</span>
+        <div class="proj-content">
+          <div class="proj-name">Networking & Security Labs (CCNA)</div>
+          <div class="proj-sub">Academic Coursework</div>
+          <div class="proj-tags">
+            <span class="tag">Cisco Packet Tracer</span>
+            <span class="tag">TCP/IP</span>
+            <span class="tag">Routing & Switching</span>
+          </div>
+        </div>
+        <span class="proj-arrow">→</span>
+      </a>
+      <a class="proj-item" href="/portfolio/#portfolio">
+        <span class="proj-num">05</span>
+        <div class="proj-content">
+          <div class="proj-name">Personal Web Portfolio</div>
+          <div class="proj-sub">Personal Project · 2025–Present</div>
+          <div class="proj-tags">
+            <span class="tag">HTML/CSS</span>
+            <span class="tag">Git</span>
+            <span class="tag">GitHub Pages</span>
+          </div>
+        </div>
+        <span class="proj-arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="skills-section">
+    <div class="section-header"><h2>Skills</h2></div>
+    <div class="skills-grid">
+      <div class="skill-block">
+        <div class="skill-block-title">Networking</div>
+        <ul class="skill-list">
+          <li>TCP/IP</li><li>Subnetting</li><li>Routing & Switching</li><li>CCNA-level</li>
         </ul>
       </div>
-      <div class="proj-footer">
-        <div class="proj-footer-tech">
-          <span class="proj-footer-label">Stack</span>
-          <span class="tag">Python</span>
-          <span class="tag">Machine Learning</span>
-          <span class="tag">CICIDS2017</span>
-          <span class="tag">Network Security</span>
-          <span class="tag">Intrusion Detection</span>
-        </div>
-      </div>
-    </div>
-  </article>
-
-  <hr class="divider">
-
-  <article class="project-entry" id="jsa">
-    <div class="proj-entry-header">
-      <div>
-        <div class="proj-entry-title">Japanese Student Association Official Website</div>
-        <div class="proj-entry-meta">Edmonds College &nbsp;·&nbsp; Nov 2025 – Present</div>
-      </div>
-      <div class="proj-entry-num">02</div>
-    </div>
-    <div class="proj-entry-body">
-      <div class="proj-entry-intro">
-        <p>My first experience building a website — and a project with real stakes. The JSA previously relied on social media, making it difficult for new students to find organized information. I designed and deployed an official site to serve as a stable, centralized hub for the organization.</p>
-      </div>
-      <div class="proj-highlights">
-        <div class="proj-highlights-label">Key Contributions</div>
-        <ul class="highlights-list">
-          <li>Designed overall site structure with a strong focus on clarity and ease of navigation</li>
-          <li>Created a layout enabling quick access to event info and organizational updates</li>
-          <li>Improved information accessibility beyond fragmented social media channels</li>
-          <li>Delivered a site appropriate for publication as an official college-affiliated resource</li>
+      <div class="skill-block">
+        <div class="skill-block-title">Cybersecurity</div>
+        <ul class="skill-list">
+          <li>IDPS concepts</li><li>Malware analysis</li><li>SOC fundamentals</li><li>Access control</li>
         </ul>
       </div>
-      <div class="proj-footer">
-        <div class="proj-footer-tech">
-          <span class="proj-footer-label">Stack</span>
-          <span class="tag">HTML</span>
-          <span class="tag">CSS</span>
-          <span class="tag">Google Sheets API</span>
-          <span class="tag">GitHub Pages</span>
-        </div>
-      </div>
-    </div>
-  </article>
-
-  <hr class="divider">
-
-  <article class="project-entry" id="portfolio">
-    <div class="proj-entry-header">
-      <div>
-        <div class="proj-entry-title">Personal Web Portfolio & GitHub Pages Deployment</div>
-        <div class="proj-entry-meta">Personal Project &nbsp;·&nbsp; Dec 2025 – Present</div>
-      </div>
-      <div class="proj-entry-num">03</div>
-    </div>
-    <div class="proj-entry-body">
-      <div class="proj-entry-intro">
-        <p>Designed and deployed a personal portfolio to professionally showcase projects, technical skills, and academic experience. Structured to function as a central hub linking a resume, portfolio content, and future projects — built for long-term scalability.</p>
-      </div>
-      <div class="proj-highlights">
-        <div class="proj-highlights-label">Key Contributions</div>
-        <ul class="highlights-list">
-          <li>Designed a multi-page architecture separating landing, portfolio, and resume content</li>
-          <li>Deployed and maintained a static site with a clean, professional layout</li>
-          <li>Implemented consistent styling and navigation for a unified experience</li>
-          <li>Structured for future expansion with additional projects and external links</li>
+      <div class="skill-block">
+        <div class="skill-block-title">Systems</div>
+        <ul class="skill-list">
+          <li>Linux (Ubuntu)</li><li>Bash scripting</li><li>VirtualBox</li><li>System hardening</li>
         </ul>
       </div>
-      <div class="proj-footer">
-        <div class="proj-footer-tech">
-          <span class="proj-footer-label">Stack</span>
-          <span class="tag">HTML</span>
-          <span class="tag">CSS</span>
-          <span class="tag">GitHub Pages</span>
-          <span class="tag">Git</span>
-        </div>
-      </div>
-    </div>
-  </article>
-
-  <hr class="divider">
-
-  <article class="project-entry" id="malware">
-    <div class="proj-entry-header">
-      <div>
-        <div class="proj-entry-title">Cybersecurity Mini Camp – Malware Analysis</div>
-        <div class="proj-entry-meta">Kanto Gakuin University &nbsp;·&nbsp; May 2023</div>
-      </div>
-      <div class="proj-entry-num">04</div>
-    </div>
-    <div class="proj-entry-body">
-      <div class="proj-entry-intro">
-        <p>An intensive cybersecurity training program focused on malware analysis and dynamic behavior monitoring. Gained hands-on experience executing samples in controlled environments and documenting findings.</p>
-      </div>
-      <div class="proj-highlights">
-        <div class="proj-highlights-label">Key Contributions</div>
-        <ul class="highlights-list">
-          <li>Executed malware samples in sandboxed environments and analyzed behavioral patterns</li>
-          <li>Practiced secure handling and analysis procedures for live malware</li>
-          <li>Produced technical reports summarizing attack vectors and countermeasures</li>
+      <div class="skill-block">
+        <div class="skill-block-title">Web & Dev</div>
+        <ul class="skill-list">
+          <li>HTML / CSS</li><li>Python</li><li>Git / GitHub</li><li>GitHub Pages</li>
         </ul>
       </div>
-      <div class="proj-footer">
-        <div class="proj-footer-tech">
-          <span class="proj-footer-label">Stack</span>
-          <span class="tag">Malware Analysis</span>
-          <span class="tag">Sandbox Environments</span>
-        </div>
-      </div>
     </div>
-  </article>
+  </section>
 
-  <hr class="divider">
-
-  <article class="project-entry" id="ccna">
-    <div class="proj-entry-header">
-      <div>
-        <div class="proj-entry-title">Networking & Security Labs (CCNA Coursework)</div>
-        <div class="proj-entry-meta">Academic Coursework</div>
-      </div>
-      <div class="proj-entry-num">05</div>
+  <section class="contact-section">
+    <div class="section-header"><h2>Contact</h2></div>
+    <div class="contact-grid">
+      <a class="contact-card" href="mailto:uemitsu13@gmail.com">
+        <span class="contact-card-label">Email</span>
+        <span class="contact-card-value">uemitsu13@gmail.com</span>
+      </a>
+      <a class="contact-card" href="https://www.linkedin.com/in/mitsutaka-uehara" target="_blank">
+        <span class="contact-card-label">LinkedIn</span>
+        <span class="contact-card-value">linkedin.com/in/mitsutaka-uehara</span>
+      </a>
     </div>
-    <div class="proj-entry-body">
-      <div class="proj-entry-intro">
-        <p>Hands-on networking labs focused on routing, switching, subnetting, basic firewall configuration, and network troubleshooting — all in simulated industry-standard environments.</p>
-      </div>
-      <div class="proj-highlights">
-        <div class="proj-highlights-label">Key Contributions</div>
-        <ul class="highlights-list">
-          <li>Configured routing and switching scenarios using Cisco Packet Tracer</li>
-          <li>Performed subnetting and network troubleshooting exercises</li>
-          <li>Applied foundational network security best practices</li>
-        </ul>
-      </div>
-      <div class="proj-footer">
-        <div class="proj-footer-tech">
-          <span class="proj-footer-label">Stack</span>
-          <span class="tag">Cisco Packet Tracer</span>
-          <span class="tag">TCP/IP</span>
-          <span class="tag">Routing & Switching</span>
-        </div>
-      </div>
-    </div>
-  </article>
-
-  <div style="margin-top: 4rem;">
-    <a class="back-link" href="/">← back to home</a>
-  </div>
+  </section>
 
 </main>
 
