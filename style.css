@@ -7,80 +7,58 @@
 }
 
 :root {
-  --navy:    #03080F;
-  --navy-2:  #070F1A;
-  --navy-3:  #0C1724;
-  --blue:    #1A6FD4;
-  --blue-2:  #2483F5;
-  --blue-glow: rgba(26, 111, 212, 0.25);
-  --cyan:    #00C7FF;
-  --text:    #E8EDF4;
-  --text-2:  #8B9CB5;
-  --text-3:  #4A5A70;
-  --border:  rgba(255,255,255,0.07);
-  --border-2:rgba(255,255,255,0.12);
+  --white:   #FFFFFF;
+  --bg:      #F5F4F0;
+  --bg-2:    #ECEAE4;
+  --blue:    #1A5FBF;
+  --blue-2:  #1A6FD4;
+  --blue-light: #E8F0FB;
+  --text:    #111318;
+  --text-2:  #52586A;
+  --text-3:  #9AA0B0;
+  --border:  rgba(0,0,0,0.08);
+  --border-2:rgba(0,0,0,0.14);
   --font-mono: 'Space Mono', monospace;
   --font-body: 'DM Sans', sans-serif;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   font-family: var(--font-body);
-  background-color: var(--navy);
+  background-color: var(--bg);
+  background-image: radial-gradient(circle, rgba(0,0,0,0.08) 1px, transparent 1px);
+  background-size: 28px 28px;
   color: var(--text);
   line-height: 1.6;
   min-height: 100vh;
   overflow-x: hidden;
 }
 
-/* Grid overlay */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(26,111,212,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(26,111,212,0.03) 1px, transparent 1px);
-  background-size: 60px 60px;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* ──────────────── HEADER ──────────────── */
 
 header {
-  position: relative;
-  z-index: 1;
-  padding: 2rem 2.5rem 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding: 1.25rem 2.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid var(--border);
-  background: rgba(3,8,15,0.8);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  position: sticky;
-  top: 0;
+  background: rgba(245,244,240,0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
 
 .header-logo {
   font-family: var(--font-mono);
-  font-size: 0.85rem;
-  color: var(--blue-2);
-  letter-spacing: 0.05em;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 0.02em;
 }
 
-.header-logo span {
-  color: var(--text-2);
-}
-
-nav {
-  display: flex;
-  gap: 0.25rem;
-}
+nav { display: flex; gap: 0.25rem; }
 
 nav a {
   font-family: var(--font-mono);
@@ -97,16 +75,14 @@ nav a {
 nav a:hover {
   color: var(--text);
   border-color: var(--border-2);
-  background: rgba(255,255,255,0.04);
+  background: rgba(0,0,0,0.04);
 }
 
 nav a.active {
-  color: var(--blue-2);
-  border-color: rgba(36,131,245,0.3);
-  background: rgba(36,131,245,0.08);
+  color: var(--blue);
+  border-color: rgba(26,111,212,0.25);
+  background: var(--blue-light);
 }
-
-/* ──────────────── MAIN ──────────────── */
 
 main {
   position: relative;
@@ -115,8 +91,6 @@ main {
   margin: 0 auto;
   padding: 4rem 2rem 6rem;
 }
-
-/* ──────────────── SECTION HEADERS ──────────────── */
 
 .section-header {
   display: flex;
@@ -129,40 +103,30 @@ main {
   font-family: var(--font-mono);
   font-size: 0.7rem;
   font-weight: 400;
-  color: var(--blue-2);
+  color: var(--text-3);
   letter-spacing: 0.15em;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .section-header::after {
   content: '';
   flex: 1;
   height: 1px;
-  background: linear-gradient(90deg, var(--border-2), transparent);
+  background: var(--border-2);
 }
 
-/* ──────────────── CARDS ──────────────── */
-
 .card {
-  background: var(--navy-2);
+  background: var(--white);
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 1.75rem;
-  transition: border-color 0.25s, background 0.25s;
+  transition: border-color 0.25s, box-shadow 0.25s;
 }
 
 .card:hover {
   border-color: var(--border-2);
-  background: var(--navy-3);
-}
-
-/* ──────────────── TAGS / BADGES ──────────────── */
-
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-top: 1rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
 }
 
 .tag {
@@ -171,24 +135,13 @@ main {
   letter-spacing: 0.06em;
   padding: 0.25rem 0.7rem;
   border-radius: 3px;
-  background: rgba(26,111,212,0.1);
-  border: 1px solid rgba(26,111,212,0.2);
-  color: #6AACEE;
+  background: var(--blue-light);
+  border: 1px solid rgba(26,111,212,0.18);
+  color: var(--blue);
 }
 
-/* ──────────────── LINKS ──────────────── */
-
-a {
-  color: var(--blue-2);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-a:hover {
-  color: var(--cyan);
-}
-
-/* ──────────────── FOOTER ──────────────── */
+a { color: var(--blue-2); text-decoration: none; transition: color 0.2s; }
+a:hover { color: var(--blue); }
 
 footer {
   position: relative;
