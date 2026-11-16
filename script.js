@@ -53,7 +53,7 @@
         if (linkMap[en.target.id]) linkMap[en.target.id].setAttribute('aria-current', 'true');
       });
     }, { rootMargin: '-40% 0px -55% 0px' });
-    ['top', 'about', 'work', 'toolkit', 'contact'].forEach(function (id) {
+    ['top', 'about', 'work', 'experience', 'toolkit', 'contact'].forEach(function (id) {
       var el = doc.getElementById(id);
       if (el) spy.observe(el);
     });
