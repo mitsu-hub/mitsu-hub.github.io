@@ -154,13 +154,11 @@ ul, ol { list-style: none; }
   font-family: var(--f-display); font-stretch: 108%;
   font-weight: 700; font-size: 1.02rem; letter-spacing: -.01em;
 }
-.seal {
-  width: 32px; height: 32px; border-radius: 8px;
-  display: grid; place-items: center;
-  background: var(--signal); color: #fff;
-  font-family: var(--f-body); font-weight: 700; font-size: .95rem; line-height: 1;
-  transform: rotate(-4deg);
-}
+.mark { width: 34px; height: 34px; flex: none; overflow: visible; transition: transform .4s var(--ease); }
+.mark-bg { fill: var(--ink); }
+.mark-mu { fill: none; stroke: var(--paper); stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+.mark-dot { fill: var(--signal); stroke: var(--paper); stroke-width: 1.6; }
+.brand:hover .mark { transform: rotate(-6deg); }
 
 .nav { margin-left: auto; display: flex; align-items: center; gap: 8px; }
 .nav-links { display: flex; gap: 2px; margin-right: 6px; }
@@ -451,6 +449,35 @@ ul, ol { list-style: none; }
 }
 .kit-items { display: flex; flex-wrap: wrap; gap: 4px 30px; font-size: 1.08rem; color: var(--ink-2); }
 
+/* Experience */
+.xp { border-top: 1px solid var(--line); }
+.xp-row {
+  display: grid; grid-template-columns: 10rem minmax(0, 1fr); gap: 6px 28px;
+  padding: 26px 0; border-bottom: 1px solid var(--line);
+}
+.xp-when { padding-top: .35em; font-size: .88rem; line-height: 1.4; color: var(--ink-3); }
+.xp-role {
+  font-family: var(--f-display); font-stretch: 106%;
+  font-weight: 700; font-size: clamp(1.15rem, 2vw, 1.5rem); line-height: 1.2; letter-spacing: -.02em;
+}
+.xp-org { margin-top: 4px; color: var(--ink-2); }
+.xp-desc { margin-top: 10px; max-width: 62ch; font-size: .98rem; line-height: 1.65; color: var(--ink-2); }
+
+/* Certifications */
+.sub-h {
+  margin: clamp(44px, 6vw, 72px) 0 14px;
+  font-family: var(--f-display); font-stretch: 108%;
+  font-weight: 700; font-size: 1.5rem; letter-spacing: -.02em;
+}
+.certs { border-top: 1px solid var(--line); }
+.certs li {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 8px 24px;
+  padding: 14px 0; border-bottom: 1px solid var(--line);
+}
+.cert-name { font-weight: 500; line-height: 1.4; }
+.cert-name span { display: block; margin-top: 2px; font-weight: 400; font-size: .88rem; color: var(--ink-3); }
+.cert-date { flex: none; font-size: .88rem; color: var(--ink-3); white-space: nowrap; }
+
 /* ---------- Contact ---------- */
 .contact { padding-block: clamp(80px, 12vw, 170px); border-top: 1px solid var(--line); margin-top: clamp(64px, 9vw, 120px); }
 .contact-q {
@@ -518,6 +545,7 @@ ul, ol { list-style: none; }
   .q-status { margin-top: 0; }
   .case { grid-template-columns: 1fr; padding-left: 18px; }
   .case-body { grid-column: 1; }
+  .xp-row { grid-template-columns: 1fr; gap: 4px; }
   .case-cols { grid-template-columns: 1fr; }
   .decisions ul { grid-template-columns: 1fr; }
 }
@@ -548,6 +576,7 @@ ul, ol { list-style: none; }
   .pg-foot { padding: 14px 16px 18px; }
   .fact { grid-template-columns: 1fr; gap: 2px; }
   .kit-row { grid-template-columns: 1fr; }
+  .xp-row { grid-template-columns: 1fr; }
   .q-title { font-size: 1.35rem; }
 }
 
