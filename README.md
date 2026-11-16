@@ -1,6 +1,6 @@
 # Mitsutaka Uehara — Portfolio
 
-Personal portfolio for an IT & cybersecurity student working toward a SOC analyst role.
+Personal portfolio for an IT & cybersecurity student working toward cybersecurity solutions engineering or SOC analyst roles.
 Plain HTML, CSS and a little JavaScript. No frameworks, no build step. Hosted on GitHub Pages.
 
 ## Files
@@ -30,9 +30,14 @@ All links are **relative**, so the site works when you double-click `index.html`
   `prefers-reduced-motion` is respected.
 - **Accessibility:** skip link, visible focus, keyboard-operable slider and accordion, labelled landmarks.
 
+## Content sources
+
+Text comes from your resume and LinkedIn. When they disagree, the resume wins (for example the JSA end date: resume says Aug 2026, LinkedIn says Sep 2026 / Present). Update `index.html` when either changes.
+
 ## Editing
 
 - Add a project: copy one `<li class="q-item">…</li>` block in the Work section and change the text/ids.
+- Add a job: copy one `<li class="xp-row">…</li>` in Experience. Add a certificate: copy one `<li>` in the `.certs` list.
 - Change colours: edit the variables at the top of `style.css` (`--ink`, `--signal`, `--paper`, …).
 - Change the playground data: `gen(...)` lines in `script.js`.
 
